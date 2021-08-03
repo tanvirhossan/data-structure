@@ -26,22 +26,23 @@ struct node *creatlinklist(int a[], int size)
     }
     return head;
 };
-int searchelement(struct node *head, int v)
+bool searchelement(struct node *head, int v)
 {
     int index=1;
     while(head!=NULL)
     {
         if(head->data==v)
-            return index;
+            return true;
         index++;
         head=head->next;
     }
-    return -1;
+    return false;
 }
 int main()
 {
     int a[9]={1,2,3,4,5,6,7,8,9};
     struct node *head;
     head=creatlinklist(a,9);
-    printf("%d",searchelement(head,7));
+    searchelement(head,7) ? cout<<"yes" : cout<<"no";
+    return 0;
 }
